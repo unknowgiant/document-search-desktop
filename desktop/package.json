@@ -1,0 +1,41 @@
+{
+  "name": "document-trace",
+  "version": "1.0.0",
+  "description": "文档寻迹：PDF、Word、TXT 全文检索桌面应用",
+  "main": "main.js",
+  "private": true,
+  "scripts": {
+    "start": "electron .",
+    "dist": "electron-builder --win dir",
+    "dist:portable": "electron-builder --win portable"
+  },
+  "build": {
+    "appId": "com.documenttrace.app",
+    "productName": "文档寻迹",
+    "directories": {
+      "output": "../outputs"
+    },
+    "electronDist": "../work/electron-v33.4.11",
+    "files": [
+      "main.js",
+      "document-search.html"
+    ],
+    "win": {
+      "target": [
+        {
+          "target": "portable",
+          "arch": ["x64"]
+        }
+      ],
+      "signAndEditExecutable": false,
+      "artifactName": "文档寻迹-${version}-Windows-x64.exe"
+    },
+    "portable": {
+      "artifactName": "文档寻迹-${version}-Windows-x64.exe"
+    }
+  },
+  "devDependencies": {
+    "electron": "33.4.11",
+    "electron-builder": "^24.13.3"
+  }
+}
